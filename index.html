@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="index.css">
+  
+  <title>Frontend Mentor | Rock, Paper, Scissors</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <div id="main">
+    <div class="card_rules">
+      <div class="top_card_rules">
+        <p class="card_rules_title"> RULES</p>
+        <img onclick="toggleCardRules()" style="height: 16px;width: 16px;" src="images/icon-close.svg" alt="close icon" class="card_rules_icon_close">
+      </div>
+      <div class="bottom_card_rules">
+        <img src="images/image-rules.svg" alt="rules of game" class="image_rules">
+      </div>
+    </div>
+    <div class="top_card">
+      <img src="images/logo.svg" alt="" class="logo">
+      <div class="score_card">
+        <p>SCORE</p>
+        <P id="score"> 0 </P>
+      </div>
+    </div>
+    <div class="bottom_card">
+      <div id="card_rock" class="card_pick card_rock"> 
+        <div class="img_card"> 
+          <img src="/images/icon-rock.svg" alt="" class="img_rock"> 
+        </div> 
+      </div>
+      <div id="card_scissors" class="card_pick card_scissors"> 
+        <div class="img_card" >
+          <img src="/images/icon-scissors.svg" alt="" class="img_scissors">
+        </div>
+      </div>
+      <div id="card_paper" class="card_pick card_paper"> 
+        <div class="img_card"> 
+          <img src="/images/icon-paper.svg" alt="" class="img_paper">
+        </div> 
+      </div>
+    </div>
+    <div class="bottom_card_step_2">
+      <div class="card_player">
+        <p class="top"> You Picked </p>
+        <div class="bottom">
+            <div class="player_picked"> 
+              <div class="img_card"><img src="" alt="" id="player_img"></div>
+            </div>
+        </div>
+      </div>
+      <div class="card_results">
+        <p class="title_results"> </p>
+        <button class="btn btn_results"> Play again</button>
+      </div>
+      <div class="card_ord bottom_card_body">
+        <p class="top"> The House Picked </p>
+        <div class="bottom">
+            <div class="ord_picked">
+            <div class="img_card"> 
+              <img src="" alt="" id="ord_img">
+            </div> 
+          </div>
+        </div>
+      </div>
+  </div>
+  <button onclick="toggleCardRules()" id="btn_rules" class="rules" type="button">RULES</button>
+  </div>
+
+  
+  <!--<div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>

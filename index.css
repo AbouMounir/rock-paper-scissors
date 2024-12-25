@@ -1,0 +1,502 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Barlow Semi Condensed", sans-serif;
+}
+
+#main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    height: 100vh;
+    background: radial-gradient(hsl(214, 47%, 23%) ,hsl(237, 49%, 15%));
+}
+
+.top_card {
+    display: flex;
+    justify-content: space-between;
+    border: 2px white solid;
+    border-radius: 8px;
+    width: 45%;
+    height: 130px;
+    padding: 1.1%;
+}
+
+.bottom_card {
+    /*border: 2px white solid;*/
+    background: url("/images/bg-triangle.svg") no-repeat center;
+    background-size: cover;
+    position: relative;
+    height: 320px;
+    width: 300px;
+    margin-top: 175px;
+}
+
+.bottom_card img{
+    height: 75px;
+}
+
+.card_picked , .card_pick{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 190px; 
+    height: 190px;
+    border-radius: 50%;
+}
+
+.card_picked .img_card, .card_pick .img_card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 5px 5px rgba(1, 1, 1, 0.5) inset;
+    width: 150px;
+    height: 150px;
+    background-color: white !important;
+    border-radius: 50%;
+}
+
+.card_rock {
+    background: radial-gradient(hsl(39, 89%, 49%) , hsl(40, 84%, 53%));
+    position: absolute;
+    top: 40%;
+    left: 20%;
+}
+
+.card_paper {   
+    background: radial-gradient(hsl(230, 89%, 62%) , hsl(230, 89%, 65%));
+    position: absolute;
+    top: -25%;
+    right: 60%;
+}
+
+.card_scissors {
+    background: radial-gradient(hsl(349, 71%, 52%) , hsl(349, 70%, 56%));
+    position: absolute;
+    top: -25%;
+    left: 60%;
+}
+
+.player_picked, .ord_picked {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    width: 290px;
+    height: 290px;
+}
+
+.player_picked .img_card, .ord_picked .img_card{
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+}
+
+.score_card {
+    width: 20%;
+    border: 2px white solid;
+    border-radius: 8px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.score_card :nth-child(1) {
+    color: hsl(229, 64%, 46%);
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 1rem;
+}
+
+.bottom {
+    order: 2;
+}
+
+.top {
+    order: 1;
+}
+
+.score_card :nth-child(2) {
+    color: hsl(229, 25%, 31%);
+    font-family: 'Barlow Semi Condensed';
+    font-weight: 700;
+    font-size: 2.5rem;
+}
+
+.rules {
+    cursor: pointer;
+    background: none;
+    border: 2px solid lightgray;
+    border-radius: 8px;
+    padding: 10px 30px;
+    color: lightgray;
+    letter-spacing: 3px;
+    font-size: 1rem ;
+    position: fixed;
+    bottom: 25px;
+    right: 10%;
+}
+
+.card_rules {
+    display: none;
+    z-index: 1000;
+    position: absolute;
+    top: 55%;
+    right: 50%;
+    transform: translate(50%,-50%);
+    background: white;
+    border-radius: 8px;
+    padding: 25px;
+}
+
+.top_card_rules {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.card_rules_title {
+    font-size: 1.5rem;
+}
+
+.bottom_card_step_2 {
+    display: none;
+    margin-top: 75px;
+    justify-content: space-between;
+    align-items: center;
+    height: 350px;
+}
+
+.card_results {
+    display: none;
+}
+
+.title_results {
+    position: relative;
+    text-align: center;
+    z-index: 10;
+    margin-bottom: 10px;
+    color : white;
+    font-size : 3rem;
+}
+
+.btn_results {
+    position: relative;
+    z-index: 10;
+    color : red; 
+    font-size: 1rem  ; 
+    border-radius: 10px;
+    padding: 10px 55px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.bottom_card_step_2 .card_player{
+    margin-right: 40px;
+}
+
+.bottom_card_step_2 .card_ord{
+    margin-left: 40px;
+}
+
+.card_player, .card_ord{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card_player p,.card_ord p{
+    z-index: 10;
+    font-size: 1.5rem;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 2px;   
+}
+
+.card_player img, .card_ord img{
+    z-index: 10;
+    height: 100px;
+}
+
+.first_spirale {
+    display: none;
+    z-index: 0;
+    opacity: .2;
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    height: 440px;
+    width: 440px;
+    border-radius: 50%;
+    background-color: #616a89;
+}
+
+.sec_spirale {
+    display: none;
+    z-index: 0;
+    opacity: .2;
+    position: absolute;
+    top: -110px;
+    right: -110px;
+    height: 540px;
+    width: 540px;
+    border-radius: 50%;
+    background-color: #4f5878;
+}
+
+.third_spirale {
+    display: none;
+    z-index: 0;
+    opacity: .3;
+    position: absolute;
+    top: -160px;
+    right: -160px;
+    height: 640px;
+    width: 640px;
+    border-radius: 50%;
+    background-color: #3e486b;
+}
+
+
+/* Example of CSS media queries for common breakpoint ranges */
+
+/* Extra Small Screens (Mobile) */
+@media only screen and (max-width: 768px) {
+    /* CSS rules specific for extra small screens */
+
+    #main {
+        padding: 25px 10px;
+        justify-content: stretch;
+    }
+
+    .top_card {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 2px white solid;
+        border-radius: 8px;
+        width: 75%;
+        height: 15%;
+        padding: 5px 10px;
+    }
+
+    .logo {
+        height: 60%;
+    }
+
+    .score_card {
+        width: 30%;
+        height: 90%;
+        border: 2px white solid;
+        border-radius: 8px;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .score_card :nth-child(1) {
+        color: hsl(229, 64%, 46%);
+        font-weight: 700;
+        font-style: normal;
+    }
+    
+    .score_card :nth-child(2) {
+        color: hsl(229, 25%, 31%);
+        font-family: 'Barlow Semi Condensed';
+        font-weight: 700;
+        font-size: 1.5rem;
+    }
+
+    .bottom_card {
+        /*border: 2px RED solid;*/
+        background: url("/images/bg-triangle.svg") no-repeat center;
+        background-size: cover;
+        position: relative;
+        height: 200px;
+        width: 150px;
+        margin-top: 125px;
+    }
+
+    .card_picked , .card_pick{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 120px; 
+        height: 120px;
+        border-radius: 50%;
+    }
+    
+    .card_picked .img_card, .card_pick .img_card{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0px 5px 5px rgba(1, 1, 1, 0.5) inset;
+        width: 90px;
+        height: 90px;
+        background-color: white !important;
+        border-radius: 50%;
+    }
+
+    .player_picked, .ord_picked {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        width: 130px;
+        height: 130px;
+    }
+    
+    .player_picked .img_card, .ord_picked .img_card{
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+    }
+
+    .card_rock {
+        background: radial-gradient(hsl(39, 89%, 49%) , hsl(40, 84%, 53%));
+        position: absolute;
+        top: 50%;
+        left: 10%;
+    }
+    
+    .card_paper {   
+        background: radial-gradient(hsl(230, 89%, 62%) , hsl(230, 89%, 65%));
+        position: absolute;
+        top: -25%;
+        right: 60%;
+    }
+    
+    .card_scissors {
+        background: radial-gradient(hsl(349, 71%, 52%) , hsl(349, 70%, 56%));
+        position: absolute;
+        top: -25%;
+        left: 60%;
+    }
+
+    .bottom_card img{
+        height: 45px;
+    }
+
+    .rules {
+        cursor: pointer;
+        background: none;
+        border: 2px solid lightgray;
+        border-radius: 8px;
+        padding: 8px 20px;
+        color: lightgray;
+        letter-spacing: 3px;
+        font-size: 1rem ;
+        position: absolute;
+        bottom: 10px;
+        right: 50%;
+        transform: translate(50%,-50%);
+    }
+
+    .bottom_card_step_2 {
+        display: none;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        height: 180px;
+        margin-top: 15vh;
+    }
+
+    .bottom_card_step_2 img{
+        height: 45px;
+    }
+
+    .bottom_card_step_2 .card_player{
+        margin-right: 0;
+    }
+
+    .card_player p,.card_ord p{
+        z-index: 10;
+        font-size: 1rem;
+        color: white;
+        text-transform: uppercase;
+        text-align: center;
+        letter-spacing: 2px;   
+    }
+
+    .bottom {
+        display: flex;
+        justify-content: center;
+        order: 1;
+    }
+    
+    .top {
+        order: 2;
+    }
+
+    .card_results {
+        position: absolute;
+        bottom: 10vh;
+        right: 50%;
+        transform: translate(50%, -50%);
+    }
+
+    .title_results {
+        position: relative;
+        text-align: center;
+        z-index: 10;
+        margin-bottom: 10px;
+        color : white;
+        font-size : 2.5rem;
+    }
+    
+    .btn_results {
+        position: relative;
+        z-index: 10;
+        color : red; 
+        font-size: 1rem  ; 
+        border-radius: 10px;
+        padding: 10px 40px;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+  }
+  
+  /* Small Screens (Tablets) */
+  @media only screen and (min-width: 577px) and (max-width: 768px) {
+    /* CSS rules specific for small screens */
+    .top_card {
+        width: 60%;
+        height: 15%;
+        padding: 5px 10px;
+    }
+  }
+  
+  /* Medium Screens (Large Tablets) */
+  @media only screen and (min-width: 769px) and (max-width: 1024px) {
+    /* CSS rules specific for medium screens */
+    .container {
+      width: 70%; /* Adjust layout for moderate container width on large tablets */
+    }
+  }
+  
+  /* Large Screens (Desktops) */
+  @media only screen and (min-width: 1025px) and (max-width: 1440px) {
+    /* CSS rules specific for large screens */
+    .container {
+      width: 60%; /* Adjust layout for narrower container width on desktops */
+    }
+  }
+  
+  /* Extra Large Screens (Large Desktops) */
+  @media only screen and (min-width: 1441px) {
+    /* CSS rules specific for extra large screens */
+    .container {
+      width: 50%; /* Adjust layout for even narrower container width on large desktops */
+    }
+  }
