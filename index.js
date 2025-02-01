@@ -7,12 +7,19 @@ let pickers = document.querySelectorAll(".img_card")
 let bottom_card = document.querySelector(".bottom_card")
 let bottom_card_step_2 = document.querySelector(".bottom_card_step_2")
 let playerImage = document.querySelector('#player_img')
-let score = 0;
 let btn_results = document.querySelector(".btn_results")
 const playerPicked = document.querySelector(".player_picked");
 const ordPicked = document.querySelector(".ord_picked");
 
 card_rules.style.display = "none"
+let scoreStorage = localStorage.getItem('score')?.toString();
+let score = 0
+if (scoreStorage) {
+    score = scoreStorage
+    document.querySelector('#score').innerHTML = score;
+    console.log(`${score} vs ${scoreStorage}`);
+    
+}
 
 btn_results.addEventListener('click', function () {
     bottom_card.style.display = "block";
@@ -58,11 +65,13 @@ for (var i = 0; i < pickers.length; i++) {
         } 
         else if ( (indexPlayerPickedValue === 0 && randomNumber === 1) || (indexPlayerPickedValue === 1 && randomNumber === 2) || (indexPlayerPickedValue === 2 && randomNumber === 0)) { 
             textResults = "YOU WIN"; 
-            score++; 
+            score++;
+            localStorage.setItem('score',score) 
         } 
         else { 
             textResults = "YOU LOSE"; 
             score--; 
+            localStorage.setItem('score',score)
         }  
         
         console.log(indexPlayerPickedValue + ' vs ' + randomNumber);
@@ -104,11 +113,3 @@ for (var i = 0; i < pickers.length; i++) {
     });
 }
 
-/*
-    
-for (let picker in pickers) {
-    console.log(pickers);
-    console.log(picker);
-    picker.addEventListener('onclick',function () {
-        console.log(pickers);
-    });*/
